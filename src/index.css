@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  /* Pastel brand colors */
+  --color-primary: 167 199 231; /* #A7C7E7 */
+  --color-secondary: 246 182 201; /* #F6B6C9 */
+  --color-tertiary: 255 241 182; /* #FFF1B6 */
+
+  /* Neutrals */
+  --color-text-dark: 46 46 56; /* #2E2E38 */
+  --color-text-muted: 107 114 128; /* #6B7280 */
+  --color-surface: 250 250 252; /* #FAFAFC */
+  --color-card: 255 255 255;
+  --color-border: 234 234 240;
+}
+
+/* Tailwind overrides / improvement */
+body {
+  font-family: "Inter", sans-serif;
+  color: #1f2937; /* dark gray */
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* in global CSS */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
