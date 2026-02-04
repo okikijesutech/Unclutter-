@@ -14,17 +14,25 @@ export default function Navbar() {
       <AppBar position="fixed" color="default" elevation={0} sx={{ borderBottom: '1px solid #e0e0e0', backgroundColor: 'rgba(255, 255, 255, 0.8)', backdropFilter: 'blur(8px)' }}>
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ 
-                fontWeight: 700, 
-                color: 'primary.main',
-                letterSpacing: '-0.5px'
-              }}
-            >
-              Unclutter
-            </Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+              <Box 
+                component="img" 
+                src="/assets/logo.png" 
+                alt="Unclutter Logo" 
+                sx={{ height: 40, width: 40, objectFit: 'contain' }} 
+              />
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{ 
+                  fontWeight: 700, 
+                  color: 'primary.main',
+                  letterSpacing: '-0.5px'
+                }}
+              >
+                Unclutter
+              </Typography>
+            </Box>
 
             <Box sx={{ display: { xs: 'none', md: 'block' } }}>
               <Button 
