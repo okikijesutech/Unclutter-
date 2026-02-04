@@ -1,42 +1,74 @@
+import { Box, Container, Grid, Typography, Paper } from "@mui/material";
 import { motion } from "framer-motion";
-import { BrainIcon } from "./icons/BrainIcon";
-import { PenIcon } from "./icons/PenIcon";
-import { LeafIcon } from "./icons/LeafIcon";
-import { TargetIcon } from "./icons/TargetIcon";
 
-const benefitsList = [
-  { title: "Clear mental overload", icon: BrainIcon },
-  { title: "Think more clearly", icon: PenIcon },
-  { title: "Reduce stress & anxiety", icon: LeafIcon },
-  { title: "Focus on what matters", icon: TargetIcon },
+const physicalBenefits = [
+  { title: "Archival-Quality Paper", description: "Thick, ink-friendly 120gsm paper that feels substantial and prevents bleed-through.", icon: "📄" },
+  { title: "Smyth-Sewn Binding", description: "Expertly crafted to lay perfectly flat, providing a seamless writing surface from edge to edge.", icon: "🧵" },
+  { title: "Premium Linen Cover", description: "A tactile, durable linen finish that ages beautifully with every season of use.", icon: "✨" },
+  { title: "Minimalist Design", description: "No distracting templates or prompts. Just a pure space for your unfiltered thoughts.", icon: "🎨" },
 ];
 
 export default function Benefits() {
   return (
-    <section className='py-24 bg-[rgb(var(--color-surface))]'>
-      <div className='max-w-6xl mx-auto px-6'>
-        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
-          {benefitsList.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={i}
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className='bg-white rounded-3xl p-6 border border-[rgb(var(--color-border))] text-center'
-              >
-                <div className='mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgb(var(--color-primary)/0.25)]'>
-                  <Icon className='h-6 w-6 text-[rgb(var(--color-text-dark))]' />
-                </div>
+    <Box component="section" sx={{ py: 12, backgroundColor: 'background.paper' }}>
+      <Container maxWidth="lg">
+        <Typography 
+          variant="h2" 
+          align="center" 
+          sx={{ 
+            fontSize: { xs: '2rem', md: '3rem' }, 
+            mb: 8,
+            color: 'primary.main'
+          }}
+        >
+          Built for a lifetime of clarity
+        </Typography>
 
-                <h3 className='text-base font-medium text-[rgb(var(--color-text-dark))]'>
-                  {item.title}
-                </h3>
+        <Grid container spacing={4}>
+          {physicalBenefits.map((item, i) => (
+            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={i}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Paper
+                  elevation={0}
+                  sx={{
+                    p: 4,
+                    textAlign: 'center',
+                    borderRadius: 4,
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    backgroundColor: 'background.default',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2
+                  }}
+                >
+                  <Typography variant="h3" sx={{ fontSize: '2.5rem' }}>
+                    {item.icon}
+                  </Typography>
+                  <Typography 
+                    variant="h6" 
+                    sx={{ 
+                      fontWeight: 700, 
+                      color: 'primary.main',
+                    }}
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                    {item.description}
+                  </Typography>
+                </Paper>
               </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }

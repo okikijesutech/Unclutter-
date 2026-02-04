@@ -1,45 +1,75 @@
+import { Box, Typography, Button, Container } from "@mui/material";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section
-      className='min-h-screen flex items-center'
-      style={{
-        backgroundImage: `
-          linear-gradient(
-            rgba(255,255,255,0.8),
-            rgba(255,255,255,0.8)
-          ),
-          url('/assets/hero-bg.png')
-        `,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+    <Box
+      component="section"
+      sx={{
+        minHeight: '85vh',
+        display: 'flex',
+        alignItems: 'center',
+        background: 'linear-gradient(rgba(250, 249, 246, 0.9), rgba(250, 249, 246, 0.9)), url("/assets/hero-bg.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        pt: { xs: 8, md: 0 },
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className='max-w-4xl mx-auto px-6 text-center'
-      >
-        <h1 className='text-4xl md:text-6xl font-semibold text-[rgb(var(--color-text-dark))] mb-4'>
-          Unclutter your mind.
-        </h1>
+      <Container maxWidth="md">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{ textAlign: 'center' }}
+        >
+          <Typography 
+            variant="h1" 
+            sx={{ 
+              fontSize: { xs: '2.5rem', md: '4.5rem' },
+              mb: 3,
+              color: 'primary.main',
+              lineHeight: 1.1
+            }}
+          >
+            Unclutter your mind.<br />
+            Hold your thoughts.
+          </Typography>
 
-        <p className='text-lg md:text-xl text-[rgb(var(--color-text-muted))] mb-8'>
-          Write freely. Let go. Feel lighter.
-        </p>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              fontSize: { xs: '1.1rem', md: '1.4rem' },
+              color: 'text.secondary',
+              mb: 6,
+              maxWidth: '650px',
+              mx: 'auto',
+              lineHeight: 1.6
+            }}
+          >
+            A premium physical journal designed for intentional thinking. 
+            Experience the clarity of analog writing on archival-quality paper.
+          </Typography>
 
-        <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-          <button className='bg-[rgb(var(--color-secondary))] text-white px-8 py-3 rounded-full shadow-md hover:opacity-90 transition'>
-            Join the waitlist
-          </button>
-
-          <button className='bg-white border border-[rgb(var(--color-border))] px-8 py-3 rounded-full text-[rgb(var(--color-text-dark))]'>
-            Learn more
-          </button>
-        </div>
-      </motion.div>
-    </section>
+          <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexDirection: { xs: 'column', sm: 'row' } }}>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              size="large"
+              sx={{ px: 5, py: 1.5, fontSize: '1.1rem' }}
+            >
+              Pre-order Now
+            </Button>
+            <Button 
+              variant="outlined" 
+              color="primary" 
+              size="large"
+              sx={{ px: 5, py: 1.5, fontSize: '1.1rem', borderRadius: 50 }}
+            >
+              The Experience
+            </Button>
+          </Box>
+        </motion.div>
+      </Container>
+    </Box>
   );
 }

@@ -1,26 +1,80 @@
-import { Container } from "@mui/material";
+import { Box, Container, Typography, Grid, Card, CardContent, Avatar } from "@mui/material";
+import { motion } from "framer-motion";
 
-const reviews = [
-  { name: "Clara", text: "Unclutter feels like silent space for my thoughts." },
-  { name: "Olu", text: "I finally get things out of my head with ease." },
-  { name: "Amaka", text: "The calm interface makes writing joyful." },
+const testimonials = [
+  { name: "Clara", text: "“Unclutter gives my thoughts room to breathe. It's the first thing I open in the morning.”", role: "Content Creator" },
+  { name: "Olu", text: "“The minimalist design helps me focus on writing, not on the tool itself. Truly life-changing.”", role: "Software Engineer" },
+  { name: "Amaka", text: "“I've tried every journaling app out there. Unclutter is the only one that stuck.”", role: "Design Student" },
 ];
 
 export default function Testimonials() {
   return (
-    <section className='bg-gray-100 py-20'>
-      <Container maxWidth='lg' className='text-center'>
-        <h2 className='text-3xl font-bold mb-8'>Testimonials</h2>
+    <Box component="section" sx={{ py: 12, backgroundColor: 'background.default' }}>
+      <Container maxWidth="lg">
+        <Typography 
+          variant="h2" 
+          align="center" 
+          sx={{ 
+            fontSize: { xs: '2rem', md: '3rem' }, 
+            mb: 8,
+            color: 'primary.main'
+          }}
+        >
+          What our writers say
+        </Typography>
 
-        <div className='grid md:grid-cols-3 gap-8'>
-          {reviews.map((rev, i) => (
-            <div key={i} className='bg-white p-6 rounded-lg shadow'>
-              <p className='text-gray-700 mb-4'>“{rev.text}”</p>
-              <p className='font-semibold'>{rev.name}</p>
-            </div>
+        <Grid container spacing={4}>
+          {testimonials.map((t, i) => (
+            <Grid size={{ xs: 12, md: 4 }} key={i}>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+              >
+                <Card 
+                  elevation={0} 
+                  sx={{ 
+                    borderRadius: 4, 
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    backgroundColor: 'background.paper',
+                    height: '100%',
+                    p: 2
+                  }}
+                >
+                  <CardContent>
+                    <Typography 
+                      variant="body1" 
+                      sx={{ 
+                        fontStyle: 'italic', 
+                        mb: 4, 
+                        color: 'text.secondary',
+                        lineHeight: 1.8
+                      }}
+                    >
+                      {t.text}
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <Avatar sx={{ bgcolor: 'secondary.main', color: 'white' }}>
+                        {t.name[0]}
+                      </Avatar>
+                      <Box>
+                        <Typography variant="subtitle1" sx={{ fontWeight: 700, color: 'primary.main' }}>
+                          {t.name}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {t.role}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
           ))}
-        </div>
+        </Grid>
       </Container>
-    </section>
+    </Box>
   );
 }
