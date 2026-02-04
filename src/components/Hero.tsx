@@ -7,8 +7,8 @@ export default function Hero() {
       style={{
         backgroundImage: `
           linear-gradient(
-            rgba(255,255,255,0.75),
-            rgba(255,255,255,0.75)
+            rgba(255,255,255,0.8),
+            rgba(255,255,255,0.8)
           ),
           url('/assets/hero-bg.png')
         `,
@@ -27,35 +27,16 @@ export default function Hero() {
         </h1>
 
         <p className='text-lg md:text-xl text-[rgb(var(--color-text-muted))] mb-8'>
-          🖊️ Write it out. Clear your head.
+          Write freely. Let go. Feel lighter.
         </p>
 
         <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-          <button
-            className='
-            bg-[rgb(var(--color-secondary))]
-            text-white
-            px-8 py-3
-            rounded-full
-            shadow-md
-            hover:opacity-90
-            transition
-          '
-          >
-            Pre-Order Now
+          <button className='bg-[rgb(var(--color-secondary))] text-white px-8 py-3 rounded-full shadow-md hover:opacity-90 transition'>
+            Join the waitlist
           </button>
 
-          <button
-            className='
-            bg-white
-            border
-            border-[rgb(var(--color-border))]
-            px-8 py-3
-            rounded-full
-            text-[rgb(var(--color-text-dark))]
-          '
-          >
-            Learn More
+          <button className='bg-white border border-[rgb(var(--color-border))] px-8 py-3 rounded-full text-[rgb(var(--color-text-dark))]'>
+            Learn more
           </button>
         </div>
       </motion.div>

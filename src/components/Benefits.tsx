@@ -5,41 +5,22 @@ import { LeafIcon } from "./icons/LeafIcon";
 import { TargetIcon } from "./icons/TargetIcon";
 
 const benefitsList = [
-  {
-    title: "Clear mental overload",
-    icon: BrainIcon,
-  },
-  {
-    title: "Think more clearly",
-    icon: PenIcon,
-  },
-  {
-    title: "Reduce stress & anxiety",
-    icon: LeafIcon,
-  },
-  {
-    title: "Focus on what matters",
-    icon: TargetIcon,
-  },
+  { title: "Clear mental overload", icon: BrainIcon },
+  { title: "Think more clearly", icon: PenIcon },
+  { title: "Reduce stress & anxiety", icon: LeafIcon },
+  { title: "Focus on what matters", icon: TargetIcon },
 ];
 
 export default function Benefits() {
   return (
-    <section className='bg-[rgb(var(--color-surface))] py-20 md:py-28'>
+    <section className='py-24 bg-[rgb(var(--color-surface))]'>
       <div className='max-w-6xl mx-auto px-6'>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'
-        >
-          {benefitsList.map((item, idx) => {
+        <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+          {benefitsList.map((item, i) => {
             const Icon = item.icon;
-
             return (
               <motion.div
-                key={idx}
+                key={i}
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className='bg-white rounded-3xl p-6 border border-[rgb(var(--color-border))] text-center'
@@ -54,7 +35,7 @@ export default function Benefits() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

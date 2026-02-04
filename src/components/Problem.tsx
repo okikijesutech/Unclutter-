@@ -1,23 +1,23 @@
-import { Container } from "@mui/material";
-
 export default function Problem() {
   return (
     <section className='py-24 bg-white'>
-      <Container maxWidth='md' className='space-y-6'>
-        <h2 className='text-3xl font-semibold'>
+      <div className='max-w-3xl mx-auto px-6 space-y-6'>
+        <h2 className='text-3xl font-semibold text-[rgb(var(--color-text-dark))]'>
           Your mind is full. That’s not your fault.
         </h2>
 
-        <p className='text-gray-600'>
-          Notes scattered across apps. Thoughts stuck in your head. Journals you
-          never return to.
+        <p className='text-[rgb(var(--color-text-muted))]'>
+          Thoughts pile up. Notes scatter. Journals get abandoned.
         </p>
 
-        <p className='text-gray-600'>
+        <p className='text-[rgb(var(--color-text-muted))]'>
           Most tools add more noise.
-          <strong> Unclutter removes it.</strong>
+          <strong className='text-[rgb(var(--color-text-dark))]'>
+            {" "}
+            Unclutter removes it.
+          </strong>
         </p>
-      </Container>
+      </div>
     </section>
   );
 }
