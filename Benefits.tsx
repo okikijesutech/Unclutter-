@@ -1,19 +1,28 @@
 import { Container } from "@mui/material";
 
+const benefitsList = [
+  { icon: "🧠", title: "Clear mental overload" },
+  { icon: "✍️", title: "Think more clearly" },
+  { icon: "🌿", title: "Reduce stress & anxiety" },
+  { icon: "🎯", title: "Focus on what matters" },
+];
+
 export default function Benefits() {
   return (
-    <section className='py-24 bg-white'>
-      <Container maxWidth='md'>
-        <h2 className='text-3xl font-semibold mb-8'>
-          What Unclutter helps you do
-        </h2>
-
-        <ul className='space-y-4 text-gray-600'>
-          <li>🧠 Clear mental overload</li>
-          <li>✍️ Think more clearly</li>
-          <li>🌿 Reduce stress & anxiety</li>
-          <li>🎯 Focus on what matters</li>
-        </ul>
+    <section className='bg-gray-50'>
+      <Container
+        maxWidth='lg'
+        className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center'
+      >
+        {benefitsList.map((item, idx) => (
+          <div
+            key={idx}
+            className='bg-white p-6 rounded-lg shadow hover:shadow-lg transition'
+          >
+            <div className='text-4xl mb-4'>{item.icon}</div>
+            <h3 className='font-semibold text-lg'>{item.title}</h3>
+          </div>
+        ))}
       </Container>
     </section>
   );

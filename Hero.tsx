@@ -2,34 +2,31 @@ import { Button, Container } from "@mui/material";
 
 export default function Hero() {
   return (
-    <section className='min-h-screen flex items-center bg-gray-50'>
-      <Container maxWidth='md' className='text-center space-y-6'>
-        <h1 className='text-5xl font-bold text-gray-900'>
-          Unclutter your mind.
-          <br /> One page at a time.
-        </h1>
+    <section
+      className='relative h-screen bg-cover bg-center'
+      style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+    >
+      <div className='absolute inset-0 bg-black bg-opacity-40'></div>
 
-        <p className='text-xl text-gray-600'>
-          🖊️ Write it out. Clear your head.
-        </p>
+      <Container
+        maxWidth='md'
+        className='relative z-10 text-center text-white space-y-6'
+      >
+        <h1 className='text-6xl font-bold'>Unclutter your mind.</h1>
 
-        <p className='text-gray-500 max-w-xl mx-auto'>
-          A calm writing space designed to help you release mental clutter,
-          think clearly, and focus on what matters.
-        </p>
+        <p className='text-2xl'>🖊️ Write it out. Clear your head.</p>
 
         <Button
-          size='large'
           variant='contained'
+          size='large'
           sx={{
-            backgroundColor: "#111827",
-            "&:hover": { backgroundColor: "#000" },
-            borderRadius: "9999px",
-            px: 5,
-            py: 1.5,
+            backgroundColor: "#ffffff",
+            color: "#111827",
+            fontWeight: 700,
+            "&:hover": { backgroundColor: "#f3f4f6" },
           }}
         >
-          Pre-Order Early Access
+          Pre-Order Now
         </Button>
       </Container>
     </section>
